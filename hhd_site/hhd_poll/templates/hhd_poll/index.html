@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HHD Poll Index</title>
+</head>
+<body>
+	<div>
+		<p>
+			This is hhd_poll index page.
+		</p>
+		<br/>
+	</div>
+	<div>
+		{% if latest_question_list %}
+		<ul>
+			{% for question in latest_question_list %}
+			<li>
+				<a href="{% url 'hhd_poll:detail' question.id %}">{{ question.question_text }}</a>
+			</li>
+			{% endfor %}
+		</ul>
+		{% else %}
+		<p>No polls are available.</p>
+		{% endif %}
+	</div>
+	<div>
+		<p>page owner's name is {{ hhd_name }}</p>
+	</div>
+</body>
+</html>
